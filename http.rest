@@ -1,5 +1,5 @@
 ﻿### POST
-POST http://localhost:3001/api/signup HTTP/1.1
+POST http://localhost:3000/api/signup HTTP/1.1
 content-type: application/json
 
 {
@@ -7,10 +7,10 @@ content-type: application/json
     "password":"abcabc"
 }
 ### POST
-POST http://localhost:3001/api/signin HTTP/1.1
+POST http://localhost:3000/api/signin HTTP/1.1
 content-type: application/json
 
 {
-    "email":"t@t.com",
-    "password":"abcabc"
+    "email":"user@test.com",
+    "password":"password"
 }

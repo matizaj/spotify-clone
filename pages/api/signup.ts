@@ -7,21 +7,25 @@ import prisma from "../../lib/prisma";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const salt = bcrypt.genSaltSync();
   const { email, password } = req.body;
+  let user;
+  try {
+    const userExist = await prisma.user.findUnique({
+      where: { email },
+    });
 
-  const userExist = await prisma.user.findUnique({
-    where: { email },
-  });
+    if (userExist) {
+      return res.status(400).json({ msg: "email already taken" });
+    }
 
-  if (userExist) {
-    return res.status(400).json({ msg: "email already taken" });
+    user = await prisma.user.create({
+      data: {
+        email,
+        password: bcrypt.hashSync(password, salt),
+      },
+    });
+  } catch (error) {
+    console.log("error", error);
   }
-
-  const user = await prisma.user.create({
-    data: {
-      email,
-      password: bcrypt.hashSync(password, salt),
-    },
-  });
 
   const token = jwt.sign(
     {
