@@ -1,4 +1,4 @@
-﻿import { Box, List, ListItem, ListIcon, Divider, Center, LinkBox, LinkOverlay } from "@chakra-ui/react";
+﻿import { Box, List, ListItem, ListIcon, Divider, LinkBox, LinkOverlay } from "@chakra-ui/react";
 import { MdHome, MdSearch, MdLibraryMusic, MdPlaylistPlay, MdFavorite } from "react-icons/md";
 import NextImage from "next/image";
 import NextLink from "next/link";

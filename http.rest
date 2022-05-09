@@ -1,0 +1,16 @@
+﻿### POST
+POST http://localhost:3001/api/signup HTTP/1.1
+content-type: application/json
+
+{
+    "email":"t@t.com",
+    "password":"abcabc"
+}
+### POST
+POST http://localhost:3001/api/signin HTTP/1.1
+content-type: application/json
+
+{
+    "email":"t@t.com",
+    "password":"abcabc"
+}
