@@ -23,4 +23,8 @@ const validateRequest = (handler) => {
     return res.status(401).json({ msg: "error" });
   };
 };
+export const validateToken = (token) => {
+  const user = jwt.verify(token, "hello");
+  return user;
+};
 export default validateRequest;
