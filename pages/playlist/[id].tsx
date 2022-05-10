@@ -1,6 +1,7 @@
 ﻿import { Box } from "@chakra-ui/react";
 import { GetServerSideProps } from "next";
 import GradientLayout from "../../components/gradientLayout";
+import SongTable from "../../components/songsTable";
 import { validateToken } from "../../lib/auth";
 import prisma from "../../lib/prisma";
 const getBgColor = (id) => {
@@ -19,7 +20,7 @@ const Playlist = ({ playlist }) => {
       description={`${playlist.songs.length} songs`}
       image={`https://picsum.photos/400?random=${playlist.id}`}
     >
-      <div>sddfgghdfhf</div>
+      <SongTable songs={playlist.songs} />
     </GradientLayout>
   );
 };
