@@ -1,9 +1,9 @@
-﻿import { Box } from "@chakra-ui/react";
-import { GetServerSideProps } from "next";
+﻿import { GetServerSideProps } from "next";
 import GradientLayout from "../../components/gradientLayout";
 import SongTable from "../../components/songsTable";
 import { validateToken } from "../../lib/auth";
 import prisma from "../../lib/prisma";
+
 const getBgColor = (id) => {
   const colors = ["red", "green", "blue", "teal", "gray", "yellow", "purple", "pink"];
   return colors[id - 1] || colors[Math.floor(Math.random() * colors.length)];
@@ -26,11 +26,19 @@ const Playlist = ({ playlist }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ query, req }) => {
-  const { id } = validateToken(req.cookies["spotify-clone-token"]);
+  const user = validateToken(req.cookies["spotify-clone-token"]);
+  if (!user) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/signin",
+      },
+    };
+  }
   const [playlist] = await prisma.playlist.findMany({
     where: {
       id: +query.id,
-      userId: id,
+      userId: user.id,
     },
     include: {
       songs: {
