@@ -9,6 +9,9 @@
 
 // module.exports = nextConfig;
 module.exports = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack5: true,
   webpack: (config) => {
     config.resolve.fallback = { fs: false };

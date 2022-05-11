@@ -31,7 +31,6 @@ const Player = ({ songs, activeSong }) => {
     return () => {
       cancelAnimationFrame(timerId);
     };
-    cancelAnimationFrame(timerId);
   }, [playing, isSeeking]);
 
   const setPlayState = (value) => {
