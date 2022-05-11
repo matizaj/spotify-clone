@@ -24,7 +24,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       },
     });
   } catch (error) {
-    console.log("error", error);
+    // eslint-disable-next-line no-alert
+    alert(error);
   }
 
   const token = jwt.sign(
