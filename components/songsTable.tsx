@@ -1,5 +1,4 @@
-﻿import { Box } from "@chakra-ui/layout";
-import { Table, Thead, Td, Tr, Tbody, Th, IconButton } from "@chakra-ui/react";
+﻿import { Table, Thead, Td, Tr, Tbody, Th, IconButton, Box } from "@chakra-ui/react";
 import { BsFillPlayFill } from "react-icons/bs";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { useStoreActions } from "easy-peasy";
